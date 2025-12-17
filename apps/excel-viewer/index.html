@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visor de Pedidos Excel</title>
+  <link rel="shortcut icon" href="icons/equalizer_FFF.svg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <h1 class="title"><img src="icons/equalizer.svg" alt="icon"> <span>Filtro de Excel</span> </h1>
+  <button id="resetBtn" class="hidden resetBtn"><span>Cargar otro archivo</span> <img src="icons/upload.svg" alt="."></button>
+</header>
+
+<main class="container">
+
+  <section id="uploadView" class="card card-xb center">
+    <label for="fileInput" class="center uploadInput">
+        <h2>Sube tu Hoja de Calculo</h2>
+        <img src="icons/upload_file.svg" alt="upload file">
+        <p>Selecciona el archivo Excel (.xlsx, .csv)</p>
+        <p id="loadingMsg" class="muted hidden">Cargando lector de archivos…</p>
+    </label>
+    <input type="file" class="hidden" id="fileInput" accept=".xlsx,.xls,.csv">
+  </section>
+
+  <section id="dashboard" class="hidden grid">
+    
+    <aside class="sidebar">
+      <div class="tabs">
+        <button id="productsTab" class="active">Productos</button>
+        <button id="clientsTab">Clientes</button>
+      </div>
+
+      <input type="text" id="searchInput" placeholder="Buscar...">
+
+      <div id="list" class="list"></div>
+    </aside>
+
+    <section id="results" class="results">
+      <p class="muted center">Selecciona un elemento para ver detalles</p>
+    </section>
+
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
