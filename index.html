@@ -1,11 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="icon" type="image/png" href="assets/code_icon.png">
+    <title>Mi Portafolio - Miguel Páez</title>
+    <meta name="description" content="Portafolio de proyectos de desarrollo web y software">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <h1>Welcome to my web site.</h1>
+<body class="bg-dark text-light">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-dark/80 border-b border-purple/20">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="logo-container">
+                    <img src="assets/code_icon.png"> 
+                    <h1 class="text-2xl font-bold text-purple">Mi Portafolio</h1>
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                    <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+                <button id="menu-toggle" class="md:hidden text-purple">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <ul class="space-y-4">
+                    <li><a href="#inicio" class="nav-link block">Inicio</a></li>
+                    <li><a href="#sobre-mi" class="nav-link block">Sobre Mí</a></li>
+                    <li><a href="#proyectos" class="nav-link block">Proyectos</a></li>
+                    <li><a href="#contacto" class="nav-link block">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 opacity-20">
+            <div class="grid-pattern"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 text-center z-10 hero-content">
+            <div class="inline-block mb-6 px-4 py-2 rounded-full border border-purple/50 backdrop-blur-sm floating">
+                <span class="text-purple text-sm font-mono">Disponible para proyectos</span>
+            </div>
+            <h2 class="text-6xl md:text-8xl font-bold mb-6 gradient-text">
+                Hola, soy<br>Miguel Páez
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light">
+                Creador de experiencias digitales únicas. Especializado en desarrollo web moderno y soluciones innovadoras.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#proyectos" class="btn-primary">
+                    Ver Proyectos
+                    <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+                <a href="#contacto" class="btn-secondary">
+                    Contáctame
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header mb-20">
+                <span class="section-number">01.</span>
+                <h3 class="section-title">Sobre Mí</h3>
+                <div class="section-line"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 fade-in-left">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Soy un desarrollador apasionado por crear soluciones digitales que combinan funcionalidad y diseño excepcional. Mi enfoque está en construir experiencias de usuario memorables y código limpio.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Con experiencia en tecnologías modernas, me especializo en transformar ideas complejas en aplicaciones web intuitivas y escalables.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-4">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">TailwindCSS</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="fade-in-right">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Años de Experiencia</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">12+</div>
+                            <div class="stat-label">Proyectos Completados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Clientes Satisfechos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">Tazas de Café</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="section-header mb-20">
+                <span class="section-number">02.</span>
+                <h3 class="section-title">Proyectos Destacados</h3>
+                <div class="section-line"></div>
+            </div>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Los proyectos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-32 relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="section-header mb-12">
+                <span class="section-number">03.</span>
+                <h3 class="section-title">¿Trabajamos Juntos?</h3>
+            </div>
+            <p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                Siempre estoy interesado en nuevos proyectos y colaboraciones. Si tienes una idea o simplemente quieres saludar, no dudes en contactarme.
+            </p>
+            <div class="flex flex-wrap gap-6 justify-center mb-12">
+                <a href="mailto:paezmiguel709@gmail.com" class="contact-link">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    Email
+                </a>
+                <a href="https://github.com/mjpb-projects" target="_blank" class="contact-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-purple/20 py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-400">
+                © 2024 Mi Portafolio - Miguel Páez.
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
