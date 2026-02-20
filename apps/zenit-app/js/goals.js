@@ -663,7 +663,7 @@ function renderHelp() {
     {
       icon: 'chat_bubble',
       label: 'WhatsApp',
-      sub: '+57 300 000 0000',
+      sub: '+57 315 637 8932',
       href: 'https://wa.me/573156378932',
       color: '#25D366',
     },
