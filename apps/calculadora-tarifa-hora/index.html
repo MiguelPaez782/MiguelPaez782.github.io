@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/icon.svg" type="image/x-icon">
+    <title>Calculadora de Tarifa por Hora | Calcula tu valor profesional</title>
+    <meta name="description" content="Calcula cuánto debes cobrar por hora según tus gastos, objetivos de ingreso y jornada laboral. Herramienta gratuita y fácil de usar.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- Hoja de estilos de la app -->
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <!-- Tutorial Overlay -->
+    <div class="tutorial-overlay" id="tutorialOverlay"></div>
+
+    <!-- Tutorial Modal -->
+    <div class="tutorial-modal" id="tutorialModal">
+        <div class="tutorial-header">
+            <div class="tutorial-icon">
+                <span class="material-icons-round">school</span>
+            </div>
+            <h2 class="tutorial-title">¡Bienvenido!</h2>
+            <p class="tutorial-subtitle">Te mostraremos cómo usar la calculadora en 4 simples pasos</p>
+        </div>
+
+        <div class="tutorial-steps">
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Define tu ingreso objetivo</h3>
+                    <p>Ingresa cuánto deseas ganar al mes y tus gastos mensuales personales. Esto nos ayudará a calcular tu ingreso neto necesario.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Agrega tus gastos operativos</h3>
+                    <p>Indica si trabajas desde casa o debes transportarte, y agrega los costos de herramientas, software, internet, u otros gastos relacionados con tu trabajo.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Configura tu jornada laboral</h3>
+                    <p>Define cuántas horas trabajas al día y cuántos días a la semana. Esto es esencial para calcular tu tarifa por hora.</p>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Obtén tus resultados</h3>
+                    <p>Haz clic en "Calcular" y obtén tu tarifa por hora, tarifa semanal y un desglose detallado de tus gastos e ingresos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tutorial-actions">
+            <button class="btn btn-primary btn-block" onclick="closeTutorial()">
+                <span class="material-icons-round">check_circle</span>
+                ¡Entendido, empecemos!
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="material-icons-round">payments</span>
+            </div>
+            <h1>Calculadora de Tarifa por Hora</h1>
+            <p class="subtitle">Descubre cuánto debes cobrar según tus gastos y objetivos profesionales</p>
+        </header>
+
+        <!-- Ingresos y Gastos Personales -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <span class="material-icons-round">account_balance_wallet</span>
+                </div>
+                <h2 class="card-title">Ingresos y Gastos Personales</h2>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">trending_up</span>
+                        Ingreso objetivo mensual
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="ingresoObjetivo" placeholder="5000" min="0" step="100">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">shopping_cart</span>
+                        Gastos personales mensuales
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="gastosPersonales" placeholder="2000" min="0" step="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gastos Operativos -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <span class="material-icons-round">business_center</span>
+                </div>
+                <h2 class="card-title">Gastos Operativos</h2>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="trabajaDesdeCasa" onchange="toggleTransporte()">
+                    <label for="trabajaDesdeCasa">
+                        <span class="material-icons-round">home</span>
+                        Trabajo desde casa
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group" id="transporteGroup">
+                <label>
+                    <span class="material-icons-round">directions_car</span>
+                    Gasto mensual en transporte
+                </label>
+                <div class="input-with-prefix">
+                    <span class="input-prefix">$</span>
+                    <input type="number" id="gastoTransporte" placeholder="300" min="0" step="50">
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">construction</span>
+                        Herramientas y equipos (mensual)
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="gastoHerramientas" placeholder="150" min="0" step="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">computer</span>
+                        Software y suscripciones (mensual)
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="gastoSoftware" placeholder="100" min="0" step="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">wifi</span>
+                        Internet y servicios (mensual)
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="gastoInternet" placeholder="50" min="0" step="10">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">more_horiz</span>
+                        Otros gastos operativos (mensual)
+                    </label>
+                    <div class="input-with-prefix">
+                        <span class="input-prefix">$</span>
+                        <input type="number" id="otrosGastos" placeholder="100" min="0" step="10">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jornada Laboral -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <span class="material-icons-round">schedule</span>
+                </div>
+                <h2 class="card-title">Jornada Laboral</h2>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">access_time</span>
+                        Horas de trabajo al día
+                    </label>
+                    <input type="number" id="horasDia" placeholder="8" min="1" max="24" step="0.5">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <span class="material-icons-round">date_range</span>
+                        Días de trabajo a la semana
+                    </label>
+                    <input type="number" id="diasSemana" placeholder="5" min="1" max="7" step="1">
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-block" onclick="calcular()">
+                <span class="material-icons-round">calculate</span>
+                Calcular mi tarifa
+            </button>
+        </div>
+
+        <!-- Resultados -->
+        <div class="card hidden" id="resultadosCard">
+            <div class="card-header">
+                <div class="card-icon">
+                    <span class="material-icons-round">bar_chart</span>
+                </div>
+                <h2 class="card-title">Tus Resultados</h2>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-label">
+                        <span class="material-icons-round">attach_money</span>
+                        Tarifa por hora
+                    </div>
+                    <div class="result-value">
+                        $<span id="tarifaHora">0</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-label">
+                        <span class="material-icons-round">calendar_today</span>
+                        Tarifa semanal
+                    </div>
+                    <div class="result-value">
+                        $<span id="tarifaSemanal">0</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-label">
+                        <span class="material-icons-round">calendar_month</span>
+                        Ingreso mensual necesario
+                    </div>
+                    <div class="result-value">
+                        $<span id="ingresoNecesario">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--text-secondary); font-size: 1.125rem;">
+                Desglose de gastos
+            </h3>
+
+            <table class="breakdown-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th style="text-align: right;">Monto</th>
+                    </tr>
+                </thead>
+                <tbody id="desgloseBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>💼 Calculadora de Tarifa por Hora | Herramienta gratuita y de código abierto</p>
+            <p style="margin-top: 0.5rem;">
+                Desarrollado con ❤️ para freelancers y profesionales independientes
+            </p>
+        </footer>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-button" onclick="showTutorial()" title="Ver tutorial">
+        <span class="material-icons-round">help</span>
+    </button>
+
+    <!-- Script app -->
+    <script src="app.js"></script>
+</body>
+</html>
