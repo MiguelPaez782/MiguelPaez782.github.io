@@ -58,6 +58,13 @@ const proyectos = [
         tags: [ "JavaScript", "CSS3", "HTML5"]
     },
     {
+        name: "Zenit",
+        description: "App web SPA (Single Page Application) que permite a los usuarios crear, gestionar y dar seguimiento a sus metas personales.",
+        image: "images/screenshot-zenit-appweb.png",
+        link: "https://miguelpaez782.github.io/apps/zenit-app/",
+        tags: [ "JavaScript", "CSS3", "HTML5", "Firebase"]
+    },
+    {
         name: "Calculadora de Tarifas Por Hora",
         description: "Calculadora de tarifas de hora laborales segun tus gastos mensuales y ganancias deseadas.",
         image: "images/screenshot-calculadora-tarifa-hora.png",
