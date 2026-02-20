@@ -44,13 +44,6 @@ class ProjectCard {
 // ========================================
 const proyectos = [
     {
-        name: "MyLocalHost",
-        description: "Aplicación web en PHP para gestionar proyectos en un servidor local con creación.",
-        image: "images/screenshot-mylocalhost.png",
-        link: "https://github.com/MiguelPaez782/mylocalhost",
-        tags: ["PHP", "CSS3", "JavaScript"]
-    },
-    {
         name: "SandBox",
         description: "Una aplicación web sencilla que permite escribir código JavaScript.",
         image: "images/screenshot-sandbox.png",
