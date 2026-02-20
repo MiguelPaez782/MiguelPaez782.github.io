@@ -656,7 +656,7 @@ function renderHelp() {
     {
       icon: 'code',
       label: 'GitHub',
-      sub: 'github.com/tu-usuario/zenit',
+      sub: 'github.com/MiguelPaez782/zenit',
       href: 'https://github.com/MiguelPaez782/zenit',
       color: '#c9d1d9',
     },
