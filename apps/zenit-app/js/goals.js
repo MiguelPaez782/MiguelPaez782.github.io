@@ -344,7 +344,7 @@ function renderApp(user, userData) {
     username: displayName,
     onSettings: () => renderSettings(user, userData),
     onHelp:     () => renderHelp(),
-    onLogout:   () => handleLogout(displayName),
+    onLogout:   () => handleLogout(),
   });
   container.appendChild(topbar);
 
@@ -649,8 +649,8 @@ function renderHelp() {
     {
       icon: 'email',
       label: 'Correo electronico',
-      sub: 'desarrollador@correo.com',
-      href: 'proyectos.mjpb@gmail.com',
+      sub: 'proyectos.mjpb@gmail.com',
+      href: 'mailto:proyectos.mjpb@gmail.com',
       color: 'var(--accent)',
     },
     {
