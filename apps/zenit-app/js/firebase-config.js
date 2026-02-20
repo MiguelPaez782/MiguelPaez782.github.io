@@ -5,12 +5,12 @@
 // ============================================================
 
 const firebaseConfig = {
-  apiKey:            "TU_API_KEY",
-  authDomain:        "TU_PROJECT_ID.firebaseapp.com",
-  projectId:         "TU_PROJECT_ID",
-  storageBucket:     "TU_PROJECT_ID.appspot.com",
-  messagingSenderId: "TU_SENDER_ID",
-  appId:             "TU_APP_ID"
+  apiKey: "AIzaSyDX1iK9jKiTLDSQFPNYxUYi9eeuVN2J_F0",
+  authDomain: "zenit-f6592.firebaseapp.com",
+  projectId: "zenit-f6592",
+  storageBucket: "zenit-f6592.firebasestorage.app",
+  messagingSenderId: "360695456580",
+  appId: "1:360695456580:web:b1612e39f9e6a9d8b1ad11"
 };
 
 // Inicializar Firebase
