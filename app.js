@@ -47,7 +47,7 @@ const proyectos = [
         name: "SandBox",
         description: "Una aplicación web sencilla que permite escribir código JavaScript.",
         image: "images/screenshot-sandbox.png",
-        link: "https://github.com/MiguelPaez782/SandBox",
+        link: "https://miguelpaez782.github.io/apps/sandbox/",
         tags: [ "JavaScript", "CSS3", "HTML5"]
     },
     {
