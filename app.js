@@ -61,7 +61,7 @@ const proyectos = [
         name: "Calculadora de Tarifas Por Hora",
         description: "Calculadora de tarifas de hora laborales segun tus gastos mensuales y ganancias deseadas.",
         image: "images/screenshot-calculadora-tarifa-hora.png",
-        link: "https://github.com/MiguelPaez782/calculadora-tarifa-hora",
+        link: "https://miguelpaez782.github.io/apps/calculadora-tarifa-hora",
         tags: ["HTML5", "CSS3", "JavaScript", "LocalStorage"]
     }
 ];
