@@ -2,9 +2,9 @@
 :root {
     --color-dark: #0a0a0f;
     --color-darker: #050508;
-    --color-purple: #6B00CF;
-    --color-purple-dark: #6B00CF;
-    --color-purple-light: #d7acff;
+    --color-blue: #2961d8;
+    --color-blue-dark: #4946ce;
+    --color-blue-light: #7d89c0;
     --color-light: #f0f0f5;
     --color-gray: #8a8a95;
 }
@@ -41,16 +41,16 @@ body {
         background-color: var(--color-darker);
     }
     
-    .text-purple {
-        color: var(--color-purple);
+    .text-blue {
+        color: var(--color-blue);
     }
     
     .text-light {
         color: var(--color-light);
     }
     
-    .border-purple {
-        border-color: var(--color-purple);
+    .border-blue {
+        border-color: var(--color-blue);
     }
 }
 
@@ -79,12 +79,12 @@ body {
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: var(--color-purple);
+    background-color: var(--color-blue);
     transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--color-purple);
+    color: var(--color-blue);
 }
 
 .nav-link:hover::after {
@@ -93,7 +93,7 @@ body {
 
 /* Gradient Text */
 .gradient-text {
-    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-purple) 100%);
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -103,7 +103,7 @@ body {
 /* Botones */
 .btn-primary {
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, var(--color-purple), var(--color-purple-dark));
+    background: linear-gradient(135deg, var(--color-blue), var(--color-blue-dark));
     color: var(--color-light);
     border-radius: 12px;
     font-weight: 600;
@@ -122,8 +122,8 @@ body {
 .btn-secondary {
     padding: 1rem 2rem;
     background: transparent;
-    color: var(--color-purple);
-    border: 2px solid var(--color-purple);
+    color: var(--color-blue);
+    border: 2px solid var(--color-blue);
     border-radius: 12px;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -133,7 +133,7 @@ body {
 }
 
 .btn-secondary:hover {
-    background: var(--color-purple);
+    background: var(--color-blue);
     color: var(--color-dark);
     transform: translateY(-2px);
 }
@@ -163,7 +163,7 @@ body {
 .scroll-line {
     width: 2px;
     height: 60px;
-    background: linear-gradient(180deg, transparent, var(--color-purple));
+    background: linear-gradient(180deg, transparent, var(--color-blue));
     animation: scrollMove 2s ease-in-out infinite;
 }
 
@@ -190,7 +190,7 @@ body {
 .section-number {
     font-family: 'Space Mono', monospace;
     font-size: 1.2rem;
-    color: var(--color-purple);
+    color: var(--color-blue);
     font-weight: 700;
 }
 
@@ -203,7 +203,7 @@ body {
 .section-line {
     flex: 1;
     height: 2px;
-    background: linear-gradient(90deg, var(--color-purple), transparent);
+    background: linear-gradient(90deg, var(--color-blue), transparent);
 }
 
 /* Skill Tags */
@@ -212,7 +212,7 @@ body {
     background: rgba(201, 150, 217, 0.1);
     border: 1px solid rgba(201, 150, 217, 0.3);
     border-radius: 8px;
-    color: var(--color-purple);
+    color: var(--color-blue);
     font-size: 0.9rem;
     transition: all 0.3s ease;
 }
@@ -240,14 +240,14 @@ body {
 
 .stat-card:hover {
     transform: translateY(-5px);
-    border-color: var(--color-purple);
+    border-color: var(--color-blue);
     box-shadow: 0 10px 30px rgba(201, 150, 217, 0.2);
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--color-purple);
+    color: var(--color-blue);
     margin-bottom: 0.5rem;
 }
 
@@ -270,7 +270,7 @@ body {
 
 .project-card:hover {
     transform: translateY(-10px);
-    border-color: var(--color-purple);
+    border-color: var(--color-blue);
     box-shadow: 0 20px 40px rgba(201, 150, 217, 0.3);
 }
 
@@ -314,14 +314,14 @@ body {
     background: rgba(201, 150, 217, 0.15);
     border-radius: 6px;
     font-size: 0.8rem;
-    color: var(--color-purple-light);
+    color: var(--color-blue-light);
 }
 
 .project-link {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-purple);
+    color: var(--color-blue);
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -339,13 +339,13 @@ body {
     background: rgba(201, 150, 217, 0.1);
     border: 1px solid rgba(201, 150, 217, 0.3);
     border-radius: 12px;
-    color: var(--color-purple);
+    color: var(--color-blue);
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-    background: var(--color-purple);
+    background: var(--color-blue);
     color: var(--color-dark);
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(201, 150, 217, 0.3);
