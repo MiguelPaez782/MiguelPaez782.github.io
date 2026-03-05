@@ -334,7 +334,7 @@ nav.scrolled .nav-logo img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--color-accent), #e8942a);
+  background: linear-gradient(135deg, var(--color-accent), #a0bec9);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -843,9 +843,9 @@ section {
 }
 
 .process-step:hover .step-circle {
-  background: linear-gradient(135deg, var(--color-accent), #e8942a);
+  background: linear-gradient(135deg, var(--color-accent), #a0bec9);
   transform: scale(1.1);
-  box-shadow: 0 20px 50px rgba(244, 166, 41, 0.4);
+  box-shadow: 0 20px 50px rgba(160, 190, 201, 0.4);
 }
 
 .step-num {
