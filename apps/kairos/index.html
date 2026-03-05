@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kairos Creative — Diseño y fabricación artesanal de cuadernos personalizados, planeadores, calendarios y más. Hechos a mano con pasión." />
+  <title>Kairos Creative — Cuadernos Artesanales Personalizados</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo-icon.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Lora:ital,wght@0,400;0,500;1,400&family=Pompiere&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Swiper CSS (for any future carousels) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========================
+       NAVIGATION
+       ======================== -->
+  <nav id="navbar" aria-label="Navegación principal">
+    <a href="#hero" class="nav-logo" aria-label="Kairos Creative - Inicio">
+      <img src="assets/logo-full.png" alt="Kairos Creative" />
+    </a>
+
+    <ul class="nav-links" id="navLinks" role="list">
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="#products">Productos</a></li>
+      <li><a href="#process">Proceso</a></li>
+      <li><a href="#brand">Marca</a></li>
+      <li><a href="#contact" class="nav-cta">Contáctanos</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ========================
+       HERO
+       ======================== -->
+  <section id="hero" aria-label="Bienvenida">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="particles" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Hecho a mano &amp; con propósito</p>
+      <img
+        src="assets/logo-full-blue.png"
+        alt="Kairos Creative"
+        class="hero-logo-img"
+      />
+      <p class="hero-tagline">
+        Diseñamos y fabricamos cuadernos personalizados, planeadores y papelería artesanal — cada pieza, única como tú.
+      </p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-primary"><span>Ver Productos</span></a>
+        <a href="#contact" class="btn-outline">Hacer un pedido</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ========================
+       ABOUT
+       ======================== -->
+  <section id="about" aria-label="Sobre Kairos Creative">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-logo-wrap">
+            <div class="about-ring about-ring-1" aria-hidden="true"></div>
+            <div class="about-ring about-ring-2" aria-hidden="true"></div>
+            <img src="assets/logo-icon.png" alt="Kairos Creative ícono" />
+          </div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <div class="section-label">Quiénes somos</div>
+          <h2>Creamos con<br /><em>pasión artesanal</em></h2>
+          <p>
+            Somos un emprendimiento dedicado al diseño, fabricación y comercialización de cuadernos personalizados, planeadores, cuadernos con propósito, calendarios, lapiceros y todo lo relacionado con encuadernación.
+          </p>
+          <p>
+            Todos nuestros productos son hechos a mano y diseñados según lo solicitado por nuestros clientes, fabricados por un equipo humano calificado, cuidando el mínimo detalle para garantizar la calidad.
+          </p>
+
+          <div class="about-stats stagger-children">
+            <div class="stat-card">
+              <span class="stat-number" data-count="1" data-suffix="">1+</span>
+              <span class="stat-label">Unidades mínimas</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="100" data-suffix="%">100%</span>
+              <span class="stat-label">Hecho a mano</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-count="4" data-suffix="">4+</span>
+              <span class="stat-label">Tamaños disponibles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission / Vision -->
+      <div class="mv-grid" style="margin-top: 5rem;">
+        <div class="mv-card reveal">
+          <span class="mv-icon">🎯</span>
+          <h3 class="mv-title">Misión</h3>
+          <p class="mv-text">
+            Diseñamos, fabricamos y encuadernamos las ideas de nuestros clientes, permitiendo que cuenten con diseños exclusivos y hechos a la medida. Fabricamos desde una (1) unidad, garantizando el detalle y calidad del producto.
+          </p>
+        </div>
+        <div class="mv-card reveal">
+          <span class="mv-icon">🚀</span>
+          <h3 class="mv-title">Visión</h3>
+          <p class="mv-text">
+            Para el año 2026, ser una empresa registrada ante la cámara de comercio y reconocida a nivel regional por nuestros excelentes productos, aumentando nuestra capacidad de producción y generando empleo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div style="margin-top: 5rem;">
+        <div class="section-header reveal">
+          <div class="section-label">Lo que nos mueve</div>
+          <h2 class="section-title">Valores de la Marca</h2>
+        </div>
+
+        <div class="values-grid stagger-children">
+          <div class="value-card">
+            <span class="value-number">01</span>
+            <h3 class="value-title">Pasión</h3>
+            <p class="value-desc">Disfrutar lo que hacemos, así todos podremos ser audaces, innovadores y creativos al máximo.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-number">02</span>
+            <h3 class="value-title">Justicia</h3>
+            <p class="value-desc">Nos conduce a tratar a todos con la decencia común que merecemos y esperamos.</p>
+          </div>
+          <div class="value-card">
+            <span class="value-number">03</span>
+            <h3 class="value-title">Amor</h3>
+            <p class="value-desc">El mayor mandamiento, que nos permite sentir, comprender y querer hacer todo con excelencia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       PRODUCTS
+       ======================== -->
+  <section id="products" aria-label="Portafolio de Productos">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Lo que hacemos</div>
+        <h2 class="section-title">Portafolio de Productos</h2>
+        <p class="section-desc">Cada producto es una obra única, diseñada especialmente para ti o tu marca.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="products-tabs reveal">
+        <button class="tab-btn active" data-tab="all">Todos</button>
+        <button class="tab-btn" data-tab="cuaderno">Cuadernos</button>
+        <button class="tab-btn" data-tab="calendario">Calendarios</button>
+        <button class="tab-btn" data-tab="otros">Otros</button>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- B5 Premium -->
+        <article class="product-card" data-category="cuaderno">
+          <div class="product-img" style="background: linear-gradient(135deg, #225378, #1a3a55);">
+            <span class="product-size-badge">B5</span>
+            <span class="product-img-icon">📒</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Cuaderno B5 Premium</h3>
+            <p class="product-desc">17cm × 22cm. El más completo de nuestra línea, con portada, contraportada y hojas internas personalizadas.</p>
+            <div class="product-features">
+              <span class="feature-tag">Personalizado</span>
+              <span class="feature-tag">Argollado lateral</span>
+              <span class="feature-tag">Con calendario</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- A5 -->
+        <article class="product-card" data-category="cuaderno">
+          <div class="product-img" style="background: linear-gradient(135deg, #1a5276, #2471a3);">
+            <span class="product-size-badge">A5</span>
+            <span class="product-img-icon">📔</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Cuaderno A5</h3>
+            <p class="product-desc">14cm × 22cm. Tamaño ideal para el día a día, ligero y con acabado artesanal impecable.</p>
+            <div class="product-features">
+              <span class="feature-tag">Estándar</span>
+              <span class="feature-tag">Premium</span>
+              <span class="feature-tag">Marca propia</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- A6 Lateral -->
+        <article class="product-card" data-category="cuaderno">
+          <div class="product-img" style="background: linear-gradient(135deg, #0e3d5c, #225378);">
+            <span class="product-size-badge">A6</span>
+            <span class="product-img-icon">📓</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Cuaderno A6 Lateral</h3>
+            <p class="product-desc">11cm × 14cm. Compacto y práctico, argollado en el costado. Perfecto para notas rápidas.</p>
+            <div class="product-features">
+              <span class="feature-tag">Argollado lateral</span>
+              <span class="feature-tag">Personalizado</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- A6 Superior -->
+        <article class="product-card" data-category="cuaderno">
+          <div class="product-img" style="background: linear-gradient(135deg, #154360, #1f618d);">
+            <span class="product-size-badge">A6</span>
+            <span class="product-img-icon">🗒️</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Cuaderno A6 Superior</h3>
+            <p class="product-desc">11cm × 14cm. Argollado en la parte superior, estilo bloc de notas. Ideal para escritorios.</p>
+            <div class="product-features">
+              <span class="feature-tag">Argollado superior</span>
+              <span class="feature-tag">Personalizado</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- A7 mini -->
+        <article class="product-card" data-category="cuaderno">
+          <div class="product-img" style="background: linear-gradient(135deg, #1a2980, #26d0ce);">
+            <span class="product-size-badge">A7</span>
+            <span class="product-img-icon">📝</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Mini Cuaderno A7</h3>
+            <p class="product-desc">5.5cm × 7cm. El más pequeño de la familia, perfecto como regalo o para llevar en el bolsillo.</p>
+            <div class="product-features">
+              <span class="feature-tag">Mini formato</span>
+              <span class="feature-tag">Regalo ideal</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Calendario Premium -->
+        <article class="product-card" data-category="calendario">
+          <div class="product-img" style="background: linear-gradient(135deg, #2c3e50, #3498db);">
+            <span class="product-size-badge">Premium</span>
+            <span class="product-img-icon">📅</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Calendario Premium</h3>
+            <p class="product-desc">Calendario de escritorio con diseño personalizado, argollado superior. Ideal para empresas y regalos corporativos.</p>
+            <div class="product-features">
+              <span class="feature-tag">Corporativo</span>
+              <span class="feature-tag">Personalizado</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Calendario Sencillo -->
+        <article class="product-card" data-category="calendario">
+          <div class="product-img" style="background: linear-gradient(135deg, #1a374d, #406882);">
+            <span class="product-size-badge">Básico</span>
+            <span class="product-img-icon">🗓️</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Calendario Sencillo</h3>
+            <p class="product-desc">Opción más accesible con diseño limpio y funcional. Perfecto para uso personal.</p>
+            <div class="product-features">
+              <span class="feature-tag">Económico</span>
+              <span class="feature-tag">Funcional</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Separadores -->
+        <article class="product-card" data-category="otros">
+          <div class="product-img" style="background: linear-gradient(135deg, #4a1942, #c0392b);">
+            <span class="product-img-icon">🔖</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Separadores</h3>
+            <p class="product-desc">Marcapáginas artesanales personalizados. El accesorio perfecto para acompañar tus cuadernos.</p>
+            <div class="product-features">
+              <span class="feature-tag">Artesanal</span>
+              <span class="feature-tag">Personalizado</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lapicero -->
+        <article class="product-card" data-category="otros">
+          <div class="product-img" style="background: linear-gradient(135deg, #0f3460, #533483);">
+            <span class="product-img-icon">🖊️</span>
+          </div>
+          <div class="product-body">
+            <h3 class="product-name">Lapicero Personalizado</h3>
+            <p class="product-desc">Lapicero con acabado personalizado para complementar tu papelería. Ideal para kits de regalo.</p>
+            <div class="product-features">
+              <span class="feature-tag">Kit regalo</span>
+              <span class="feature-tag">Corporativo</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       PROCESS
+       ======================== -->
+  <section id="process" aria-label="Nuestro proceso">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Cómo trabajamos</div>
+        <h2 class="section-title">Nuestro Proceso</h2>
+        <p class="section-desc">De tu idea a tus manos, cuidando cada paso con dedicación artesanal.</p>
+      </div>
+
+      <div class="process-steps stagger-children">
+
+        <div class="process-step">
+          <div class="step-circle">💬</div>
+          <span class="step-num">PASO 01</span>
+          <h3 class="step-title">Consulta</h3>
+          <p class="step-desc">Nos cuentas tu idea, el uso, el diseño y los detalles que deseas para tu producto.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-circle">🎨</div>
+          <span class="step-num">PASO 02</span>
+          <h3 class="step-title">Diseño</h3>
+          <p class="step-desc">Nuestro equipo crea el diseño personalizado de portada, hojas internas y más.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-circle">✂️</div>
+          <span class="step-num">PASO 03</span>
+          <h3 class="step-title">Fabricación</h3>
+          <p class="step-desc">Todo se elabora a mano con materiales de calidad, cuidando cada milímetro.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-circle">📦</div>
+          <span class="step-num">PASO 04</span>
+          <h3 class="step-title">Entrega</h3>
+          <p class="step-desc">Tu pedido listo y empacado con amor, directamente a tus manos.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       CONTACT
+       ======================== -->
+  <section id="contact" aria-label="Contacto">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Hablemos</div>
+        <h2 class="section-title">¿Tienes una idea?</h2>
+        <p class="section-desc">Escríbenos y hagamos realidad ese cuaderno que siempre quisiste. Atendemos pedidos personales y corporativos.</p>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-cards stagger-children">
+
+          <a href="https://instagram.com/kairos_creative_" target="_blank" rel="noopener noreferrer" class="contact-card" aria-label="Instagram de Kairos Creative">
+            <span class="contact-icon"><i class="fa-brands fa-instagram" style="color: #c13584;"></i></span>
+            <span class="contact-label">Instagram</span>
+            <span class="contact-value">@kairos_creative_</span>
+          </a>
+
+          <a href="tel:+573006623070" class="contact-card" aria-label="Llamar a Kairos Creative">
+            <span class="contact-icon"><i class="fa-brands fa-whatsapp" style="color: #25D366;"></i></span>
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">300 662 3070</span>
+          </a>
+
+          <a href="mailto:kairosscrap@gmail.com" class="contact-card" aria-label="Enviar correo a Kairos Creative">
+            <span class="contact-icon"><i class="fa-solid fa-envelope" style="color: #F4A629;"></i></span>
+            <span class="contact-label">Correo</span>
+            <span class="contact-value">kairosscrap@gmail.com</span>
+          </a>
+
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="reveal" style="
+          background: linear-gradient(135deg, rgba(34,83,120,0.3), rgba(34,83,120,0.1));
+          border: 1px solid rgba(34,83,120,0.4);
+          border-radius: 24px;
+          padding: 3.5rem 3rem;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        ">
+          <div style="
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(244,166,41,0.08), transparent 70%);
+          " aria-hidden="true"></div>
+
+          <p style="
+            font-family: 'Pompiere', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.35em;
+            color: var(--orange-accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+          ">Fabricamos desde 1 unidad</p>
+
+          <h3 style="
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: white;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+          ">Tu idea, nuestras manos,<br />tu producto único.</h3>
+
+          <p style="color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 2rem;">
+            Cuadernos personalizados para ti, para tu empresa o para regalar. Contáctanos y recibe una cotización sin costo.
+          </p>
+
+          <a href="https://wa.me/573006623070?text=Hola%20Kairos%20Creative!%20Me%20gustaría%20hacer%20un%20pedido."
+             target="_blank" rel="noopener noreferrer"
+             class="btn-primary"
+             style="display: inline-block;">
+            <span><i class="fa-brands fa-whatsapp" style="margin-right: 0.5rem;"></i>Pedir por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       FOOTER
+       ======================== -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo" aria-label="Kairos Creative inicio">
+        <img src="assets/logo-full.png" alt="Kairos Creative" />
+      </a>
+
+      <p class="footer-copy">
+        © 2025 Kairos Creative® · By Brayan Páez<br />
+        <span style="font-size: 0.75rem; opacity: 0.5;">Todos los derechos reservados.</span>
+      </p>
+
+      <div class="footer-social">
+        <a href="https://instagram.com/kairos_creative_"
+           target="_blank" rel="noopener noreferrer"
+           class="social-link"
+           aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/573006623070"
+           target="_blank" rel="noopener noreferrer"
+           class="social-link"
+           aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:kairosscrap@gmail.com"
+           class="social-link"
+           aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
