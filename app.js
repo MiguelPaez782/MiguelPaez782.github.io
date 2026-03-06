@@ -54,7 +54,7 @@ const proyectos = [
         name: "Zenit",
         description: "App web SPA (Single Page Application) que permite a los usuarios crear, gestionar y dar seguimiento a sus metas personales.",
         image: "images/screenshot-zenit-appweb.png",
-        link: "https://miguelpaez782.github.io/apps/zenit-app/",
+        link: "https://zenit-f6592.web.app/",
         tags: [ "JavaScript", "CSS3", "HTML5", "Firebase"]
     },
     {
