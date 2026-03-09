@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Registro - EggChecker</title>
+</head>
+<body>
+    <a href="login.html" class="back">
+        <img src="assets/iconos/icon_arrow_back.svg" alt="<" class="icon">
+    </a>
+
+    <section class="logo">
+        <img src="assets/img/logo_eggchecker.png" alt="logo EggChecker">
+        <h1>EggChecker</h1>
+    </section>
+    <section class="content">
+        <div class="container">
+            <h2>Crear cuenta</h2>
+            
+            <form action="#">
+                <label for="nombre">Nombre completo</label>
+                <div class="input-field">
+                    <img src="assets/iconos/icon_person.svg" class="icon">
+                    <input type="text" name="nombre" id="nombre" placeholder="Juan Perez">
+                </div>
+
+                <label for="correo">Correo electrónico</label>
+                <div class="input-field">
+                    <img src="assets/iconos/icon_mail.svg" class="icon">
+                    <input type="email" name="correo" id="correo" placeholder="tucorreo@email.com">
+                </div>
+
+                <label for="clave">Contraseña</label>
+                <div class="input-field">
+                    <img src="assets/iconos/icon_lock.svg" class="icon">
+                    <input type="password" name="clave" id="clave" placeholder="*************">
+                </div>
+
+                <label for="confirmarClave">Repetir Contraseña</label>
+                <div class="input-field">
+                    <img src="assets/iconos/icon_lock.svg" class="icon">
+                    <input type="password" name="confirmarClave" id="confirmarClave" placeholder="*************">
+                </div>
+                
+                <input type="submit" value="Crear cuenta">
+            </form>
+        </div>
+    </section>
+</body>
+</html>

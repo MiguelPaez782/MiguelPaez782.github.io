@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - EggChecker</title>
+</head>
+<body>
+    <section class="logo">
+        <img src="assets/img/logo_eggchecker.png" alt="Logo de EggChecker">
+        <h1>EggChecker</h1>
+        <span>Control avícola inteligente</span>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Bienvenido</h2>
+
+            <form action="dashboard.html">
+                 <label for="correo">Correo electrónico</label>
+                 <div class="input-field">
+                    <img src="assets/iconos/icon_mail.svg" class="icon">
+                    <input type="email" name="correo" id="correo" placeholder="tucorreo@email.com">
+                 </div>
+
+                 <label for="clave">Contraseña</label>
+                 <div class="input-field">
+                    <img src="assets/iconos/icon_lock.svg" class="icon">
+                    <input type="password" name="clave" id="clave" placeholder="***********">
+                 </div>
+
+                 <input type="submit" value="Iniciar sesión">
+            </form>
+
+            <a href="#">Olvide mi contraseña</a>
+
+        </div>
+
+        <p>¿No tienes cuenta? <a href="registro.html">Crear cuenta</a></p>
+
+    </section>
+</body>
+</html>
