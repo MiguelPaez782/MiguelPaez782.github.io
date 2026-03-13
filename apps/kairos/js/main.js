@@ -1,176 +1,244 @@
-/* ===========================
-   KAIROS CREATIVE - MAIN JS
-   =========================== */
+/* ================================================
+   KAIROS CREATIVE — MAIN JS
+   ================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---- Custom Cursor ---- */
-  const cursor = document.querySelector('.cursor');
-  const follower = document.querySelector('.cursor-follower');
+  /* ── Sticky nav ─────────────────────────────── */
+  const nav = document.getElementById('nav');
+  const navLogo = nav.querySelector('.nav-logo');
 
-  if (window.innerWidth > 768) {
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      setTimeout(() => {
-        follower.style.left = e.clientX + 'px';
-        follower.style.top = e.clientY + 'px';
-      }, 80);
+  const onScroll = () => {
+    const stuck = window.scrollY > 70;
+    nav.classList.toggle('stuck', stuck);
+    // Logo only visible once nav is sticky (hero already shows the big logo)
+    navLogo.style.opacity       = stuck ? '1' : '0';
+    navLogo.style.pointerEvents = stuck ? 'auto' : 'none';
+    navLogo.style.transform     = stuck ? 'translateX(0)' : 'translateX(-8px)';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Mobile hamburger ───────────────────────── */
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks  = document.querySelector('.nav-links');
+  if (hamburger) {
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
     });
-
-    document.querySelectorAll('a, button, .product-card, .value-card, .contact-card').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-        follower.style.width = '55px';
-        follower.style.height = '55px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width = '10px';
-        cursor.style.height = '10px';
-        follower.style.width = '35px';
-        follower.style.height = '35px';
-      });
-    });
-  }
-
-  /* ---- Navbar scroll ---- */
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  /* ---- Mobile nav toggle ---- */
-  const toggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (toggle && navLinks) {
-    toggle.addEventListener('click', () => {
-      toggle.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    // Close on link click
-    navLinks.querySelectorAll('a').forEach(a => {
+    navLinks.querySelectorAll('a').forEach(a =>
       a.addEventListener('click', () => {
-        toggle.classList.remove('active');
+        hamburger.classList.remove('open');
         navLinks.classList.remove('open');
-      });
-    });
+        hamburger.setAttribute('aria-expanded', 'false');
+      })
+    );
   }
 
-  /* ---- Scroll Reveal ---- */
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children').forEach(el => {
-    revealObserver.observe(el);
-  });
-
-  /* ---- Particles ---- */
-  const particlesContainer = document.querySelector('.particles');
-  if (particlesContainer) {
-    const colors = ['#225378', '#3a9fd6', '#1a6fa0', '#F4A629', 'rgba(255,255,255,0.3)'];
-    for (let i = 0; i < 35; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const size = Math.random() * 8 + 2;
-      p.style.cssText = `
-        width: ${size}px;
-        height: ${size}px;
-        background: ${colors[Math.floor(Math.random() * colors.length)]};
-        left: ${Math.random() * 100}%;
-        animation-duration: ${Math.random() * 12 + 8}s;
-        animation-delay: ${Math.random() * 8}s;
-      `;
-      particlesContainer.appendChild(p);
+  /* ── Hero particles ─────────────────────────── */
+  const pWrap = document.querySelector('.hero-particles');
+  if (pWrap) {
+    const colors = ['#225378','#3b8fc0','#1a6fa0','rgba(201,148,58,0.7)','rgba(255,255,255,0.18)'];
+    for (let i = 0; i < 32; i++) {
+      const s = document.createElement('span');
+      const sz = Math.random() * 6 + 2;
+      Object.assign(s.style, {
+        width: sz + 'px',
+        height: sz + 'px',
+        background: colors[Math.floor(Math.random() * colors.length)],
+        left: Math.random() * 100 + '%',
+        animationDuration: (Math.random() * 14 + 7) + 's',
+        animationDelay: (Math.random() * 8) + 's',
+      });
+      pWrap.appendChild(s);
     }
   }
 
-  /* ---- Animated counter ---- */
-  const counters = document.querySelectorAll('.stat-number[data-count]');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.count);
-        const suffix = el.dataset.suffix || '';
-        let current = 0;
-        const increment = target / 60;
-        const update = () => {
-          current += increment;
-          if (current < target) {
-            el.textContent = Math.floor(current) + suffix;
-            requestAnimationFrame(update);
-          } else {
-            el.textContent = target + suffix;
-          }
-        };
-        update();
-        counterObserver.unobserve(el);
+  /* ── Scroll reveal ──────────────────────────── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  counters.forEach(c => counterObserver.observe(c));
+  document.querySelectorAll('.reveal, .reveal-l, .reveal-r, .stagger').forEach(el => io.observe(el));
 
-  /* ---- Product Tabs ---- */
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const productCards = document.querySelectorAll('.product-card[data-category]');
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.tab;
-
-      productCards.forEach(card => {
-        const show = cat === 'all' || card.dataset.category === cat;
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px) scale(0.97)';
-
-        if (!show) {
-          card.style.display = 'none';
-        } else {
-          card.style.display = 'block';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0) scale(1)';
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-          }, 50);
-        }
-      });
-    });
-  });
-
-  /* ---- Smooth active nav link ---- */
-  const sections = document.querySelectorAll('section[id]');
-  const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 150) current = s.id;
-    });
-    navAs.forEach(a => {
-      a.classList.remove('active-nav');
-      if (a.getAttribute('href') === '#' + current) a.classList.add('active-nav');
-    });
-  });
-
-  /* ---- Parallax hero ---- */
+  /* ── Hero parallax ──────────────────────────── */
   const heroContent = document.querySelector('.hero-content');
   window.addEventListener('scroll', () => {
-    if (window.scrollY < window.innerHeight) {
-      const offset = window.scrollY * 0.35;
-      if (heroContent) heroContent.style.transform = `translateY(${offset}px)`;
+    if (window.scrollY < window.innerHeight * 1.2 && heroContent) {
+      heroContent.style.transform = `translateY(${window.scrollY * 0.28}px)`;
     }
+  }, { passive: true });
+
+  /* ── Render product grid ────────────────────── */
+  const grid = document.getElementById('productGrid');
+  if (grid && typeof PRODUCTS !== 'undefined') {
+    renderProducts('all');
+  }
+
+  function renderProducts(category) {
+    if (!grid) return;
+    const filtered = category === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
+
+    grid.innerHTML = filtered.map(p => `
+      <article
+        class="product-card"
+        data-id="${p.id}"
+        data-category="${p.category}"
+        tabindex="0"
+        role="button"
+        aria-label="Ver detalles de ${p.name}"
+      >
+        <div class="card-img">
+          <img
+            src="${p.image}"
+            alt="${p.name}"
+            loading="lazy"
+            onerror="this.style.opacity='0'"
+          />
+          <div class="card-img-overlay"></div>
+          ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ''}
+          <div class="card-hover-cta">
+            <span>
+              <i class="fa-solid fa-expand" aria-hidden="true"></i>
+              Ver detalles
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-name">${p.name}</h3>
+          <p class="card-desc">${p.tagline}</p>
+          <div class="card-tags">
+            ${p.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      </article>
+    `).join('');
+
+    // Bind click / keyboard
+    grid.querySelectorAll('.product-card').forEach(card => {
+      const open = () => openModal(card.dataset.id);
+      card.addEventListener('click', open);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    });
+
+    // Stagger entrance
+    grid.querySelectorAll('.product-card').forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(24px)';
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.45s ease, box-shadow 0.45s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 80);
+      });
+    });
+  }
+
+  /* ── Product filter tabs ────────────────────── */
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts(btn.dataset.tab);
+    });
   });
+
+  /* ── Modal ──────────────────────────────────── */
+  const overlay = document.getElementById('productModal');
+  const modalClose = document.getElementById('modalClose');
+
+  function openModal(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p || !overlay) return;
+
+    // Populate content
+    document.getElementById('modal-label-cat').textContent = p.category.charAt(0).toUpperCase() + p.category.slice(1);
+    document.getElementById('modal-name').textContent = p.name;
+    document.getElementById('modal-tagline').textContent = p.tagline;
+
+    // Specs
+    const specsGrid = document.getElementById('modal-specs');
+    specsGrid.innerHTML = Object.entries(p.specs).map(([k,v]) => `
+      <div class="spec-item">
+        <span class="spec-key">${k}</span>
+        <span class="spec-val">${v}</span>
+      </div>
+    `).join('');
+
+    // Options
+    const optionsList = document.getElementById('modal-options');
+    optionsList.innerHTML = p.options.map(o => `
+      <div class="option-item">
+        <i class="${o.icon} option-icon" aria-hidden="true"></i>
+        <span>${o.text}</span>
+      </div>
+    `).join('');
+
+    // Gallery
+    const gallery = document.getElementById('modal-gallery');
+    gallery.innerHTML = p.gallery.map((src, i) => `
+      <div class="gallery-thumb" tabindex="0" aria-label="Imagen ${i+1}">
+        <img src="${src}" alt="${p.name} - imagen ${i+1}" loading="lazy" onerror="this.style.opacity='0'" />
+      </div>
+    `).join('');
+
+    // WA link
+    const waBtn = document.getElementById('modal-wa-btn');
+    if (waBtn) {
+      const msg = encodeURIComponent(`Hola Kairos Creative! Me interesa el ${p.name}. ¿Me pueden dar más información?`);
+      waBtn.href = `https://wa.me/573006623070?text=${msg}`;
+    }
+
+    // Open overlay
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Init 3D viewer
+    const canvas = document.getElementById('viewer-canvas');
+    if (canvas && typeof Viewer3D !== 'undefined') {
+      // Give the modal time to render and get real dimensions
+      setTimeout(() => {
+        const pane = document.querySelector('.modal-3d');
+        if (pane) {
+          canvas.width  = pane.clientWidth;
+          canvas.height = pane.clientHeight;
+        }
+        Viewer3D.load(canvas, p.shape);
+      }, 120);
+    }
+  }
+
+  function closeModal() {
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (overlay) {
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  /* ── Active nav link on scroll ──────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 160) cur = s.id; });
+    navAs.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur
+        ? 'var(--accent-light)'
+        : '';
+    });
+  }, { passive: true });
 
 });
