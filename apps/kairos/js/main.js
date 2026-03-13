@@ -20,21 +20,31 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   /* ── Mobile hamburger ───────────────────────── */
-  const hamburger = document.querySelector('.nav-hamburger');
-  const navLinks  = document.querySelector('.nav-links');
+  const hamburger   = document.querySelector('.nav-hamburger');
+  const navLinks    = document.querySelector('.nav-links');
+  const navOverlay  = document.getElementById('navOverlay');
+
+  function closeNav() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    if (navOverlay) navOverlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
   if (hamburger) {
     hamburger.addEventListener('click', () => {
       const open = hamburger.classList.toggle('open');
       navLinks.classList.toggle('open', open);
+      if (navOverlay) navOverlay.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open);
+      // Prevent body scroll when nav is open
+      document.body.style.overflow = open ? 'hidden' : '';
     });
     navLinks.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      })
+      a.addEventListener('click', closeNav)
     );
+    if (navOverlay) navOverlay.addEventListener('click', closeNav);
   }
 
   /* ── Hero particles ─────────────────────────── */
@@ -204,15 +214,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Init 3D viewer
     const canvas = document.getElementById('viewer-canvas');
     if (canvas && typeof Viewer3D !== 'undefined') {
-      // Give the modal time to render and get real dimensions
+      // Give the modal time to render, then size canvas to fit container
       setTimeout(() => {
-        const pane = document.querySelector('.modal-3d');
-        if (pane) {
-          canvas.width  = pane.clientWidth;
-          canvas.height = pane.clientHeight;
-        }
+        // Don't set canvas.width/height directly — let Viewer3D handle it responsively
         Viewer3D.load(canvas, p.shape);
-      }, 120);
+      }, 180);
     }
   }
 

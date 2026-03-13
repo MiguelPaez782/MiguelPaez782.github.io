@@ -1,6 +1,21 @@
 /* ================================================
    KAIROS CREATIVE — 3D PRODUCT VIEWER
    Uses Three.js r128 via CDN
+   
+   HOW TO ADD REAL 3D MODELS:
+   ─────────────────────────────────────────────────
+   1. Export your model as .glb or .gltf from Blender,
+      Cinema 4D, Canva 3D, or any 3D software.
+   2. Place the file in: assets/models/<product-id>.glb
+   3. In this file, uncomment the GLTFLoader block
+      and comment out the placeholder geometry block.
+   4. The viewer will automatically pick up the model.
+   
+   RECOMMENDED TOOLS FOR 3D MODELS:
+   - Adobe Substance 3D Sampler (free)
+   - Blender (free, open source)
+   - Spline (spline.design) — web-based, easy
+   - Canva 3D mockup export
    ================================================ */
 
 const Viewer3D = (() => {
@@ -258,9 +273,14 @@ const Viewer3D = (() => {
       object.rotation.set(0, 0.3, 0);
       autoRotate = true;
 
-      // Handle resize
-      const W = canvas.clientWidth  || 400;
-      const H = canvas.clientHeight || 420;
+      // Handle resize — clamp to container, never overflow on mobile
+      const pane = canvas.parentElement;
+      const maxW  = pane ? pane.clientWidth  : window.innerWidth;
+      const isMobile = window.innerWidth <= 768;
+      const W = Math.min(maxW, isMobile ? maxW : 400);
+      const H = isMobile ? 200 : 400;
+      canvas.style.width  = W + 'px';
+      canvas.style.height = H + 'px';
       renderer.setSize(W, H);
       camera.aspect = W / H;
       camera.updateProjectionMatrix();
