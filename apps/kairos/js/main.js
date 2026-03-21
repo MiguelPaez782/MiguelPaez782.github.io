@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Give the modal time to render, then size canvas to fit container
       setTimeout(() => {
         // Don't set canvas.width/height directly — let Viewer3D handle it responsively
-        Viewer3D.load(canvas, p.shape);
+        Viewer3D.load(canvas, p.shape, p.id);
       }, 180);
     }
   }
